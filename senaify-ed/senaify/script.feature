@@ -30,4 +30,3 @@ Feature: Fluxo do Usuário na Aplicação de Música
     And eu vejo a música favoritada na lista
     When eu clico na música favoritada
     Then a música começa a tocar
-

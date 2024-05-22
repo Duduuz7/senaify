@@ -13,17 +13,14 @@ import { ImageAlbum, ImageMusic } from "../Image/styles";
 import { Paragraph, SubParagraph } from "../Text/Paragraph/styles";
 import { ContainerMusic, ContainerSound } from "../Container/styles";
 
-export const Album = ({ image, name, description, onPress, label }) => {
+export const Album = ({ image, name, description, onPress, label, labelButton }) => {
   return (
-    <CardAlbum
-      onPress={onPress}
-      accessibilityLabel={label}
-    >
+    <CardAlbum accessibilityLabel={label} onPress={onPress}>
       <ImageAlbum
         source={{ uri: image }}
       />
 
-      <Paragraph>{name}</Paragraph>
+      <Paragraph >{name}</Paragraph>
 
       <SubParagraph>{description}</SubParagraph>
     </CardAlbum>
@@ -65,11 +62,11 @@ export const Music = ({ image, name, artist, play = false, isLike = false, like,
       </ContainerMusic>
 
       {like && (
-        <ButtonLike onPress={() => handleLike()} testID="icon-button">
+        <ButtonLike testID="icon-button" onPress={() => handleLike()}>
           {
             isLiked
-              ? <FontAwesome name="heart" size={18} color="#FF0000" accessibilityLabel="icon-like"/>
-              : <FontAwesome name="heart-o" size={18} color="#1ED760" accessibilityLabel="icon-deslike"/>
+              ? <FontAwesome accessibilityLabel="icon-like" name="heart" size={18} color="#FF0000" />
+              : <FontAwesome accessibilityLabel="icon-deslike" name="heart-o" size={18} color="#1ED760" />
           }
         </ButtonLike>
       )}
